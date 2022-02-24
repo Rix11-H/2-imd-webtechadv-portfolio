@@ -5,14 +5,12 @@
 p {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-transform: uppercase;
-    font-size: 1.5em;
     text-align: center;
 }
 
 section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: .4em;
     height: 95vh;
     width: 95vw;
@@ -31,9 +29,7 @@ section {
     justify-content: center;
     align-items: center;
 
-    grid-column: 3 / span 1;
-    grid-row: 1/span 3;
-
+    grid-row: 3/span 1;
 }
 
 .cloud {
@@ -42,6 +38,43 @@ section {
     justify-content: center;
     align-items: center;
 
-    grid-column: 4/span 2;
-    grid-row: 2/span 2;
+    grid-row: 6/span 1;
+}
+
+@media(min-width: 600px) {
+    section {
+        grid-template-columns: 1fr 1fr ;
+    }
+
+    .broken {
+        grid-column: 1/span 1;
+        grid-row: 2/span 1;
+    }
+    .cloud {
+        grid-column: 2/span 1;
+        grid-row: 3/span 1;
+    }
+}
+
+@media(min-width: 1000px) {
+    section {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    p {
+        font-size: 1.5em;
+    }
+
+
+    .broken {
+        grid-column: 3 / span 1;
+        grid-row: 1/span 3;
+    
+    }
+    .cloud {
+        grid-column: 4/span 2;
+        grid-row: 2/span 2;
+    
+    }
 }
