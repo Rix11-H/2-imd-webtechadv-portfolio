@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+/* html, body {
+    height: 100%;
+} */
+
 body {
     padding: 0;
     margin: 0;
@@ -23,7 +27,7 @@ span {
     background-image: url("https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     box-shadow: inset 0 0 0 2000px rgba(255,255,255,.3);
     background-size: cover;
-
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2fr 6fr 1fr 1fr;
@@ -35,7 +39,7 @@ span {
     flex: 50% 0 0;
 }
 
-.date, .admit, .price {
+.date, .admit, .price, .comment {
     border: 1px solid black;
     font-size: 1.5em;
 
@@ -91,5 +95,65 @@ span {
 
 .comment {
     display: none;
+}
+
+@media (min-width: 800px) {
+    .ticket {
+        grid-template-columns: 1fr 1fr 1fr 1.5fr;
+        grid-template-rows: 8fr 2fr 1fr;
+    }
+    
+    .header {
+        grid-column: 1 /span 3;
+        grid-row: 1 /span 1;
+
+        border: 1px solid black;
+        background-color: unset;
+        color: black;
+
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .header h1 {
+        font-size: 6em;
+        padding-top: .6em;
+    }
+
+    .qr, .admit, .price, .date {
+        font-size: 2em;
+    }
+
+    .qr {
+        grid-column: 4 /span 1;
+        grid-row: 1/span 3;
+    }
+    
+    .admit {
+        grid-column: 2/span 1;
+        grid-row: 2/ span 1;
+    }
+    
+    .price {
+        grid-column: 3 /span 1;
+        grid-row: 2 /span 1;
+    }
+    
+    .date {
+        grid-column: 1 /span 1;
+        grid-row: 2/ span 1;
+    }
+
+    .comment {
+        grid-column: 1 /span 3;
+        grid-row: 3 /span 1;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 1em;
+    }
 }
 
