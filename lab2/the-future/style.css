@@ -45,6 +45,7 @@ section {
     section {
         grid-template-columns: 1fr 1fr ;
     }
+    
 
     .broken {
         grid-column: 1/span 1;
