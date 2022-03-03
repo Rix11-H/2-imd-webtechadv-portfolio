@@ -2,7 +2,7 @@ class Todo {
     constructor(title) {
       // HINT🤩
       // use a constructor to set basic property values
-      // this.title = title;
+      this.title = title;
     }
   
     createElement() {
