@@ -1,4 +1,4 @@
-class Todo {
+export default class Todo {
     constructor(title) {
       // HINT🤩
       // use a constructor to set basic property values
@@ -6,6 +6,9 @@ class Todo {
     }
   
     createElement() {
+        let li = document.createElement("li"); 
+        li.innerHTML = this.title;
+        li.classList.add("prior-high");
       // HINT🤩
       // this method will create the HTML structure with the correct classes, based on the todo priority
       // let newNote = document.createElement("li");
@@ -23,7 +26,8 @@ class Todo {
     add() {
       // HINT🤩
       // this function should append the note to the screen somehow
-      // let todo = this.createElement(); // should return a full <li> with the right classes and innerHTML
+      let todo = this.createElement(); // should return a full <li> with the right classes and innerHTML
+      document.querySelector("todo-list").appendChild("todo");
     }
   
     saveToStorage() {
