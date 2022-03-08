@@ -27,10 +27,9 @@ export default class App {
             let todo = new Todo(inputText);//dit moet variabel zijn op wat je ingegeven hebt in het tekstvak!
             todo.add();
             this.reset();
-            console.log(this);
            // todo.saveToStorage();
         }
-        
+
         
       // HINT🤩
       // this function should create a new todo by using the Todo() class
