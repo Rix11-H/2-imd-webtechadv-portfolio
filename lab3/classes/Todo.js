@@ -8,7 +8,18 @@ export default class Todo {
     createElement() {
         let li = document.createElement("li"); 
         li.innerHTML = this.title;
-        li.classList.add("prior-high");
+
+        if(li.innerHTML.includes("high:")){
+            li.classList.add("prior-high");
+        } else if (li.innerHTML.includes("medium:")) {
+            li.classList.add("prior-medium");
+        } else if (li.innerHTML.includes("low:")) {
+            li.classList.add("prior-low");
+        } else {
+            li.classList.add("prior-medium");
+        }
+
+        return li;
       // HINT🤩
       // this method will create the HTML structure with the correct classes, based on the todo priority
       // let newNote = document.createElement("li");
@@ -19,6 +30,7 @@ export default class Todo {
   
     markDone(e) {
       // HINT🤩
+        console.log("yaaay");
       // this function should mark the current todo as done, by adding the correct CSS class
       // if the item is clicked, but was already marked as done, remove the item from the list
     }
@@ -27,10 +39,11 @@ export default class Todo {
       // HINT🤩
       // this function should append the note to the screen somehow
       let todo = this.createElement(); // should return a full <li> with the right classes and innerHTML
-      document.querySelector("todo-list").appendChild("todo");
+      document.querySelector("#todo-list").appendChild(todo);
     }
   
     saveToStorage() {
+        // myStorage = window.localStorage;
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify

@@ -23,11 +23,15 @@ export default class App {
     createItem(e) {
         if(e.key === "Enter"){
             console.log("📕");
-            let todo = new Todo("This is a demo");//dit moet variabel zijn op wat je ingegeven hebt in het tekstvak!
+            let inputText = document.querySelector("#add-item-text").value;
+            let todo = new Todo(inputText);//dit moet variabel zijn op wat je ingegeven hebt in het tekstvak!
             todo.add();
+            this.reset();
+            console.log(this);
+           // todo.saveToStorage();
         }
-        this.reset();
-        console.log(this);
+        
+        
       // HINT🤩
       // this function should create a new todo by using the Todo() class
       // new Todo(text)
@@ -46,6 +50,7 @@ export default class App {
   
     reset() {
       // this function should reset the form / clear the text field
+      document.querySelector("#add-item-text").value = "";
     }
   }
   
