@@ -18,6 +18,7 @@
 > [Link to the codepen](https://codepen.io/Rix11/pen/Exbpodd)
 > I made this grid as an assignemnt to test my CSS Grid knowledge.
 
+
 <img src="https://github.com/Rix11-H/2-imd-webtechadv-portfolio/blob/main/lab2/scrnshots/theFuture-sm.png" height="250"/>
 <img src="https://github.com/Rix11-H/2-imd-webtechadv-portfolio/blob/main/lab2/scrnshots/theFuture-md.png" height="250"/>
 <img src="https://github.com/Rix11-H/2-imd-webtechadv-portfolio/blob/main/lab2/scrnshots/theFuture-lg.png" height="250"/>
