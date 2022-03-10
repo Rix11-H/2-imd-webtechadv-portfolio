@@ -1,9 +1,11 @@
 export default class App {
-    constructor(API_KEY) {
-        this.API_KEY = API_KEY;
+    constructor(API_KEY1, API_KEY2) {
+        this.API_KEY1 = API_KEY1;
+        this.API_KEY2 = API_KEY2;
         this.lat = 0;
         this.lng = 0;
         this.getLocation();
+        this.getLotr();
     }
 
     getLocation(){
@@ -22,7 +24,7 @@ export default class App {
 
     getWeather(){
         console.log("getting weather");
-        let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${this.lat}&lon=${this.lng}&appid=${this.API_KEY}`
+        let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${this.lat}&lon=${this.lng}&appid=${this.API_KEY1}`
         console.log(url);
         fetch(url)
             .then( (response) => {
@@ -46,5 +48,21 @@ export default class App {
 
     locationError(err){
         console.log(err);
+    }
+
+    getLotr(){
+        console.log("getting lotr data");
+        let url = `https://the-one-api.dev/v2/quote`
+        console.log(url);
+        fetch(url)
+            .then( (response) => {
+                return response.json()
+            })
+            .then( (json) => {
+                console.log(json)
+                this.printWeather(json);
+            })
+            .catch(err => console.log(err))
+            .finally( () => console.log("finally done"));
     }
 }
