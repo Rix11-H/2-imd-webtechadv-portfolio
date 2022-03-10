@@ -11,7 +11,7 @@
 ****
 
 
-## Lab 2 assignement [Go to repository](https://github.com/Rix11-H/2-imd-webtechadv-portfolio/tree/main/lab2)
+## Lab 2 assignment [Go to repository](https://github.com/Rix11-H/2-imd-webtechadv-portfolio/tree/main/lab2)
 
 
 ### 1) The Future Grid [Go to repository](https://github.com/Rix11-H/2-imd-webtechadv-portfolio/tree/main/lab2/the-future)
@@ -33,5 +33,8 @@
 
 
 *******
+
+## Lab 3 assignment [Go to repository](https://github.com/Rix11-H/2-imd-webtechadv-portfolio/tree/main/lab3)
+> [Link to the codeSandbox](https://codesandbox.io/s/blazing-lake-drjo1x?file=/index.html)
 
 
