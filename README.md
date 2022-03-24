@@ -37,4 +37,13 @@
 ## Lab 3 assignment [Go to repository](https://github.com/Rix11-H/2-imd-webtechadv-portfolio/tree/main/lab3)
 > [Link to the codeSandbox](https://codesandbox.io/s/blazing-lake-drjo1x?file=/index.html)
 
+*************
+
+## Lab 6 assignement [Check it out with Heroku!](https://quidditch-scoreboard.herokuapp.com/)
+> I made my very own Quidditch Scoreboard!
+
+> To move to the live view, exchange "/" for "/live" in the url
+
+<img src="https://media.giphy.com/media/xCpBgX5TUWFM1sWPKm/giphy.gif" height="250"/>
+
 
