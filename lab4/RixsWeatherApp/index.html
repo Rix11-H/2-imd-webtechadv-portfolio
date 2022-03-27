@@ -7,11 +7,18 @@
     <title>Weather App</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-stone-800">
-    <div id="app">
-      <h1 class="capitalize text-5xl text-slate-50">Loading...</h1>
-      <h2 class="p-6 text-2xl text-slate-50"></h2>
-    </div>
+  <body class="bg-stone-800 flex justify-center content-center">
+      <div id="app" class="max-w-4xl flex bg-slate-700">
+        <img src="" class="w-80 albumCover inline justify-start content-center" alt="album cover">
+        <div class="detailBox">
+          <h1 class="px-6 py-3 pt-6 capitalize text-5xl text-slate-50 justify-start content-center">Loading...</h1>
+          <h2 class="px-6 text-2xl text-slate-50 temp"></h2>
+          <p class="px-6 pt-12 text-xl text-slate-400">Listen to:</p>
+          <a href="" target="_blank" class="px-6 pb-12 text-2xl text-slate-50 hover:text-cyan-400 title"></a>  
+        </div>
+        <img src="./imgs/genius-2.jpg" alt="Genius music logo" class="h-20 logo">
+      </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>

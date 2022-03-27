@@ -5,7 +5,8 @@ export default class App {
         this.lat = 0;
         this.lng = 0;
         this.getLocation();
-        this.getLotr();
+        // this.getSong();
+
     }
 
     getLocation(){
@@ -20,6 +21,10 @@ export default class App {
         this.lat = location.coords.latitude;
         this.lng = location.coords.longitude;
         this.getWeather();
+    }
+
+    locationError(err){
+        console.log(err);
     }
 
     getWeather(){
@@ -41,28 +46,135 @@ export default class App {
     printWeather(json){
         let summary = json.weather[0].description;
         let temp = Math.round(json.main.temp);
-        //if(temp < 8) {}
+        console.log(this.weather);
+
+        if(summary.includes("cloud")) {
+            this.getCloudSong();
+        } else if(summary.includes("sun")) {
+            this.getSunSong();
+        } else if(summary.includes("wind")) {
+            this.getWindSong();
+        } else if(summary.includes("rain")) {
+            this.getRainSong();
+        } else if(summary.includes("storm")) {
+            this.getStormSong();
+        }
+
         document.querySelector("h1").innerHTML = summary;
-        document.querySelector("h2").innerHTML = temp + "°C";
+        document.querySelector(".temp").innerHTML = temp + "°C";
     }
 
-    locationError(err){
-        console.log(err);
-    }
-
-    getLotr(){
-        console.log("getting lotr data");
-        let url = `https://the-one-api.dev/v2/quote`
-        console.log(url);
-        fetch(url)
+    getCloudSong() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Host': 'genius.p.rapidapi.com',
+                'X-RapidAPI-Key': this.API_KEY2
+            }
+        };
+        
+        fetch("https://genius.p.rapidapi.com/search?q=cloudy_day_tones", options)
             .then( (response) => {
                 return response.json()
             })
-            .then( (json) => {
+            .then((json) => {
                 console.log(json)
-                this.printWeather(json);
+                this.printSong(json);
             })
-            .catch(err => console.log(err))
-            .finally( () => console.log("finally done"));
+            .catch(err => console.error(err))
+            .finally( () => console.log("songs are done"));
     }
+
+    getSunSong() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Host': 'genius.p.rapidapi.com',
+                'X-RapidAPI-Key': this.API_KEY2
+            }
+        };
+        
+        fetch("https://genius.p.rapidapi.com/search?q=here_comes_the_sun", options)
+            .then( (response) => {
+                return response.json()
+            })
+            .then((json) => {
+                console.log(json)
+                this.printSong(json);
+            })
+            .catch(err => console.error(err))
+            .finally( () => console.log("songs are done"));
+    }
+
+    getRainSong() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Host': 'genius.p.rapidapi.com',
+                'X-RapidAPI-Key': this.API_KEY2
+            }
+        };
+        
+        fetch("https://genius.p.rapidapi.com/search?q=umbrella_rihanna", options)
+            .then( (response) => {
+                return response.json()
+            })
+            .then((json) => {
+                console.log(json)
+                this.printSong(json);
+            })
+            .catch(err => console.error(err))
+            .finally( () => console.log("songs are done"));
+    }
+
+    getWindSong() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Host': 'genius.p.rapidapi.com',
+                'X-RapidAPI-Key': this.API_KEY2
+            }
+        };
+        
+        fetch("https://genius.p.rapidapi.com/search?q=wind_of_change", options)
+            .then( (response) => {
+                return response.json()
+            })
+            .then((json) => {
+                console.log(json)
+                this.printSong(json);
+            })
+            .catch(err => console.error(err))
+            .finally( () => console.log("songs are done"));
+    }
+
+    getStormSong() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Host': 'genius.p.rapidapi.com',
+                'X-RapidAPI-Key': this.API_KEY2
+            }
+        };
+        
+        fetch("https://genius.p.rapidapi.com/search?q=AC/DC_thunderstruck", options)
+            .then( (response) => {
+                return response.json()
+            })
+            .then((json) => {
+                console.log(json)
+                this.printSong(json);
+            })
+            .catch(err => console.error(err))
+            .finally( () => console.log("songs are done"));
+    }
+
+    printSong(json){
+        let title = json.response.hits[0].result.full_title;
+        let cover = json.response.hits[0].result.header_image_url;
+        document.querySelector(".title").innerHTML = title + " 🔊";
+        document.querySelector(".title").href = "https://www.youtube.com/results?search_query=thunderstruck" + title;
+        document.querySelector(".albumCover").src = cover;
+    }
+
 }
