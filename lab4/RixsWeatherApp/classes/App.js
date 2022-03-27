@@ -47,6 +47,7 @@ export default class App {
         let summary = json.weather[0].description;
         let temp = Math.round(json.main.temp);
         console.log(this.weather);
+        summary = "storm";
 
         if(summary.includes("cloud")) {
             this.getCloudSong();
@@ -172,8 +173,10 @@ export default class App {
     printSong(json){
         let title = json.response.hits[0].result.full_title;
         let cover = json.response.hits[0].result.header_image_url;
+        let lyrics = json.response.hits[0].result.url;
+
         document.querySelector(".title").innerHTML = title + " 🔊";
-        document.querySelector(".title").href = "https://www.youtube.com/results?search_query=thunderstruck" + title;
+        document.querySelector(".title").href = lyrics;
         document.querySelector(".albumCover").src = cover;
     }
 
