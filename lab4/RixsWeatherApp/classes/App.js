@@ -47,7 +47,6 @@ export default class App {
         let summary = json.weather[0].description;
         let temp = Math.round(json.main.temp);
         console.log(this.weather);
-        summary = "storm";
 
         if(summary.includes("cloud")) {
             this.getCloudSong();
