@@ -39,7 +39,7 @@
 
 *************
 
-## Lab 3 assignment [Go to repository](https://github.com/Rix11-H/2-imd-webtechadv-portfolio/tree/main/lab3)
+## Lab 4 assignment [Go to repository](https://github.com/Rix11-H/2-imd-webtechadv-portfolio/tree/main/lab3)
 > For this assignment, I created a webadvertisement for Genius.com that returns songs according to the current weather.
 
 > [Link to the codeSandbox](https://codesandbox.io/s/confident-gauss-yp49mw)
