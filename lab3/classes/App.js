@@ -5,7 +5,7 @@ export default class App {
       console.log("🍕");
       this.setupEventListeners();
       this.loadFromStorage();
-    }
+    } 
   
     setupEventListeners() {
       console.log("👂🏽");
@@ -22,24 +22,30 @@ export default class App {
             console.log("📕");
             let inputText = document.querySelector("#add-item-text").value;
             let todo = new Todo(inputText);//dit moet variabel zijn op wat je ingegeven hebt in het tekstvak!
-            todo.saveToStorage();
             todo.add();
+            todo.saveToStorage();
             this.reset();
         }
         
     }
   
     loadFromStorage() {
-      let todoItems = [],
-          keys = Object.keys(localStorage),
-          todos = keys.length;
-
-      while (todos--) {
-        todoItems.push(JSON.parse(localStorage.getItem(keys[todos])));
-      }
-      for(let todoItem of todoItems){
-        let todo = new Todo(todoItem.title, todoItem.done);
-        todo.add();
+    
+    let todoItems = JSON.parse(localStorage.getItem("todoItems"));
+    // console.log(todoItems);
+    if( todoItems !== null ) {
+      todoItems.forEach((item) => {
+        let todo = new Todo(item["title"], item["done"]);
+        //console.log(todo);
+        //console.log(item["status"]);
+        if(item["done"]){
+          todo.add("done");
+        }
+        else {
+          todo.add();
+        }              
+    });
+        console.log(todoItems);
       }
     }
   

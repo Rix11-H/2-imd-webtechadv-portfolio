@@ -1,5 +1,5 @@
 export default class Todo {
-    constructor(title, done = false) {
+    constructor(title, done) {
       // HINT🤩
       // use a constructor to set basic property values
       this.title = title;
@@ -20,10 +20,10 @@ export default class Todo {
             li.classList.add("prior-medium");
         }
 
-        li.prototype = this;
+        //li.prototype = this;
         li.addEventListener("click", this.markDone.bind(li));
 
-        if(this.done == true){
+        if(this.done === true){
           li.classList.add("done");
         }
 
@@ -31,23 +31,52 @@ export default class Todo {
     }
   
     markDone() {
+      let todoItems = localStorage.getItem("todoItems");
+      todoItems = JSON.parse(todoItems) || "todoItems";
+
       if(this.classList.contains("done")){
         this.remove();
-        localStorage.removeItem(this.prototype.title);
+        todoItems.forEach((item, index) => {
+          if(item["title"] === this.innerHTML){
+            todoItems.splice(index,1);
+            localStorage.setItem("todoItems", JSON.stringify(todoItems));
+          }
+        });
       } else {
         this.classList.add("done");
-        this.prototype.done = true;
-        this.prototype.saveToStorage();
+        todoItems.forEach((item, index) => {
+          if(item["title"] === this.innerHTML) {
+            let todoItem = todoItems[index];
+            todoItem["done"] = true;
+            localStorage.setItem("todoItems", JSON.stringify(todoItems));
+          }
+        });
       }
+
+      //   localStorage.removeItem(this.title);
+      // } else {
+      //   this.classList.add("done");
+      //   this.done = true;
+      //   this.saveToStorage();
+      // }
     }
   
-    add() {
+    add(done) {
       let todo = this.createElement(); // should return a full <li> with the right classes and innerHTML
+      if (done) {
+        todo.classList.add("done");
+      }
       document.querySelector("#todo-list").appendChild(todo);
     }
   
     saveToStorage() {
-      localStorage.setItem(this.title, JSON.stringify(this));
+      // localStorage.setItem(todoItems, JSON.stringify(this));
+      let todoItems = localStorage.getItem("todoItems");
+      todoItems = JSON.parse(todoItems) || [];
+
+      todoItems.push({"title": this.title, "status": this.done});
+      localStorage.setItem("todoItems", JSON.stringify(todoItems));
+
     }
-  }
+  } 
   
