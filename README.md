@@ -48,7 +48,7 @@
 *************
 
 ## Lab 5 assignement
-> To be committed
+> [Link to the codepen](https://codepen.io/Rix11/pen/gOoEvVL)
 
 ****************
 
